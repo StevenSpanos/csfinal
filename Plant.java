@@ -13,7 +13,7 @@ public class Plant extends Entity{
         super(h, x, y, c);
         speed = s;
         type = t;
-        plants.add(this);
+        Plant.plants.add(this);
     }
 
     //get methods

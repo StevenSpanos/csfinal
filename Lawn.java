@@ -32,7 +32,10 @@ public class Lawn {
 
     public void printLawn(){
         Main.clear();
+        System.out.print("  "); for(int x = 0; x < cols; x++){System.out.print(" " + x + " ");}
+        System.out.println();
         for(int r = 0; r < rows; r++){
+            System.out.print(r + " ");
             for(int c = 0; c < cols; c++){
                 Entity x = lawn[r][c];
                 System.out.print("["+x.getCharacter()+"]");

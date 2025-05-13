@@ -48,7 +48,11 @@ public class Main{
         for(int x = 1; x < packets.size()+1; x++){
             System.out.println(x + ". " + packets.get(x-1).getName());
         }
+        int a = input.nextInt();
+        System.out.print("X value: ");
         int x = input.nextInt();
-        if(x == 1){lawn.plant(new Plant(10, 0, 0, "B", 0,1));}
+        System.out.print("Y value: ");
+        int y = input.nextInt();
+        if(a == 1){lawn.plant(new Plant(10, x, x, "B", 0,1));}
     }
 }
