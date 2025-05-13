@@ -31,7 +31,7 @@ public class Lawn {
     }
 
     public void printLawn(){
-        System.out.print("\033[H\033[2J"); System.out.flush(); 
+        Main.clear();
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
                 Entity x = lawn[r][c];
