@@ -1,17 +1,18 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
     private static Lawn lawn = new Lawn();
     private static Scanner input = new Scanner(System.in);
+    public static ArrayList<Packet> packets = new ArrayList<Packet>();
     public static void main(String[] args){
+        Packet packet = new Packet("Bamboozler", 100);
         System.out.println("1. Play");
         System.out.println("-1. Exit");
         int choice = input.nextInt();
         while (choice != -1){
             lawn.resetLawn();
             lawn.printLawn();
-            lawn.plant(1,1);
-            lawn.printLawn();
-            choice = inputHandler();
+            inputHandler();
         }
         clear();
         System.out.println("Game Quit");
@@ -32,14 +33,22 @@ public class Main{
         }
         if(x == 2){
             plant();
+            return 2;
         }
         if(x == 3){
-            
+            return 3;
         }
         return x;
     }
 
     public static void plant(){
-
+        clear();
+        lawn.printLawn();
+        System.out.println("Select your plant: ");
+        for(int x = 1; x < packets.size()+1; x++){
+            System.out.println(x + ". " + packets.get(x-1).getName());
+        }
+        int x = input.nextInt();
+        if(x == 1){lawn.plant(new Plant(10, 0, 0, "B", 0,1));}
     }
 }

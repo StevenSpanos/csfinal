@@ -41,8 +41,8 @@ public class Lawn {
         }
     }
 
-    public void plant(int x, int y){
-        Plant.plants.add(new Plant(10,x,y,"B",1,0));
+    public void plant(Plant p){
+        Plant.plants.add(p);
         updateLawn();
     }
 }
