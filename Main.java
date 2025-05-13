@@ -5,14 +5,20 @@ public class Main{
     private static Scanner input = new Scanner(System.in);
     public static ArrayList<Packet> packets = new ArrayList<Packet>();
     public static void main(String[] args){
-        Packet packet = new Packet("Bamboozler", 100);
+        Packet packet = new Packet("Bamboozler", 3);
+        packet = new Packet("Water Lily", 2);
+        packet = new Packet("Cashew Guard", 2);
         System.out.println("1. Play");
         System.out.println("-1. Exit");
+        lawn.resetLawn();
         int choice = input.nextInt();
+
         while (choice != -1){
-            lawn.resetLawn();
             lawn.printLawn();
-            inputHandler();
+            choice = inputHandler();
+            spawn();
+            updatePlants();
+            updateBugs();
         }
         clear();
         System.out.println("Game Quit");
@@ -53,6 +59,23 @@ public class Main{
         int x = input.nextInt();
         System.out.print("Y value: ");
         int y = input.nextInt();
-        if(a == 1){lawn.plant(new Plant(10, x, x, "B", 0,1));}
+        if(a == 1){lawn.plant(new Plant(10, x, y, "B", 0,1));}
+        if(a == 2){lawn.plant(new Plant(7, x, y, "W", 1, 2));}
+        if(a == 3){lawn.plant(new Plant(25,x, y,"C",0,3));}
+    }
+
+    public static void spawn(){
+        lawn.spawn(new Bug(3, 5, 0, "X", 1, 1));
+    }
+
+    public static void updatePlants(){
+        for(Plant p : Plant.plants){
+
+        }
+    }
+    public static void updateBugs(){
+        for(Bug b : Bug.bugs){
+            b.walk();
+        }
     }
 }

@@ -18,4 +18,17 @@ public class Plant extends Entity{
 
     //get methods
     public int getSpeed(){return speed;} public int getType(){return type;}
+
+    public void shoot(){
+        int leastX = -1;
+        for(Bug x : Bug.bugs){
+            if(x.getY() == super.getY()){
+                if(leastX > x.getX()){
+                    leastX = x.getX();
+                    bug = x;
+                }
+            }
+            if(leastX != -1){bug.hurt();}
+        }
+    }
 }

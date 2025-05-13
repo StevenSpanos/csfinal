@@ -20,6 +20,7 @@ public class Lawn {
         }
     }
     public void updateLawn(){
+        resetLawn();
         for(Plant p : Plant.plants){
             int x = p.getX(); int y = p.getY();
             lawn[y][x] = p;
@@ -46,6 +47,11 @@ public class Lawn {
 
     public void plant(Plant p){
         Plant.plants.add(p);
+        updateLawn();
+    }
+
+    public void spawn(Bug b){
+        Bug.bugs.add(b);
         updateLawn();
     }
 }
