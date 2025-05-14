@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Plant extends Entity{
     private int speed;
     private int type;
+    private int countdown = 0;
     public static ArrayList<Plant> plants = new ArrayList<Plant>();
     public Plant(){
         super(-1, -1);
@@ -17,7 +18,7 @@ public class Plant extends Entity{
     }
 
     //get methods
-    public int getSpeed(){return speed;} public int getType(){return type;}
+    public int getSpeed(){return speed;} public int getType(){return type;} public int getCountdown(){return countdown;}
 
     public void shoot(){
         if(Bug.bugs.size() > 0){
@@ -37,6 +38,17 @@ public class Plant extends Entity{
     }
 
     public void step(){
-        shoot();
+        if(type == 1){shoot();}
+        if(type == 2){water();}
+    }
+
+    public void water(){
+        if(speed > 0){
+            countdown++;
+            if(countdown >= speed){
+                countdown = 0;
+                Main.water++;
+            }
+        }
     }
 }

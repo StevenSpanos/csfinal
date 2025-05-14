@@ -4,6 +4,7 @@ public class Bug extends Entity{
     private int speed;
     private int type;
     private int index;
+    private int countdown = 0;
     public static ArrayList<Bug> bugs = new ArrayList<Bug>();
     public Bug(){
         super(-1, -1);
@@ -36,7 +37,15 @@ public class Bug extends Entity{
     }
 
     public void walk(){
+        countdown++;
+        if(countdown >= speed){
+        countdown = 0;
         setX(getX()-1);
+        if(getX() < 0){
+            Main.lose();
+            return;
+        }
         Main.lawn.updateLawn();
+        }
     }
 }
