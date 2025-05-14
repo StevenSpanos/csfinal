@@ -106,6 +106,7 @@ public class Main{
     }
 
     public static boolean checkXY(int x, int y){
+        if(x < 0 || y < 0){return false;}
         for(Plant p : Plant.plants){
             if(p.getX() == x && p.getY() == y){
                 return false;
