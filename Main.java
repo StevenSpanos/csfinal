@@ -12,11 +12,11 @@ public class Main{
         System.out.println("-1. Exit");
         lawn.resetLawn();
         int choice = input.nextInt();
-
+        spawn();
         while (choice != -1){
             lawn.printLawn();
             choice = inputHandler();
-            spawn();
+
             updatePlants();
             updateBugs();
         }
