@@ -9,6 +9,7 @@ public class Main{
         Packet packet = new Packet("Bamboozler", 3);
         packet = new Packet("Water Lily", 2);
         packet = new Packet("Cashew Guard", 2);
+        clear();
         System.out.println("1. Play");
         System.out.println("-1. Exit");
         lawn.resetLawn();
@@ -18,11 +19,11 @@ public class Main{
             round++;
             lawn.printLawn();
             choice = inputHandler();
+            updatePlants();
+            updateBugs();
             if(round % 5 == 0){
                 spawn();
             }
-            updatePlants();
-            updateBugs();
 
         }
         clear();
