@@ -25,14 +25,14 @@ public class Plant extends Entity{
             Bug bug = null;
             for(Bug x : Bug.bugs){
                 if(x.getY() == getY()){
-                    if(leastX > x.getX()){
+                    if(leastX > x.getX() && x.getX() >= getX()){
                         leastX = x.getX();
                         bug = x;
                     }
                 }
                 
             }
-            if(leastX != -1){bug.hurt();}
+            if(leastX != -1 && bug != null){bug.hurt();}
         }
     }
 

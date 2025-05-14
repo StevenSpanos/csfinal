@@ -23,6 +23,7 @@ public class Main{
             }
             updatePlants();
             updateBugs();
+
         }
         clear();
         System.out.println("Game Quit");
