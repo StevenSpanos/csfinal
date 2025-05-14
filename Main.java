@@ -70,7 +70,7 @@ public class Main{
 
     public static void updatePlants(){
         for(Plant p : Plant.plants){
-
+            
         }
     }
     public static void updateBugs(){

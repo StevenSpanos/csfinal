@@ -21,6 +21,7 @@ public class Plant extends Entity{
 
     public void shoot(){
         int leastX = -1;
+        Bug bug = null;
         for(Bug x : Bug.bugs){
             if(x.getY() == super.getY()){
                 if(leastX > x.getX()){
