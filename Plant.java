@@ -20,16 +20,23 @@ public class Plant extends Entity{
     public int getSpeed(){return speed;} public int getType(){return type;}
 
     public void shoot(){
-        int leastX = -1;
-        Bug bug = null;
-        for(Bug x : Bug.bugs){
-            if(x.getY() == super.getY()){
-                if(leastX > x.getX()){
-                    leastX = x.getX();
-                    bug = x;
+        if(Bug.bugs.size() > 0){
+            int leastX = 999;
+            Bug bug = null;
+            for(Bug x : Bug.bugs){
+                if(x.getY() == getY()){
+                    if(leastX > x.getX()){
+                        leastX = x.getX();
+                        bug = x;
+                    }
                 }
+                
             }
             if(leastX != -1){bug.hurt();}
         }
+    }
+
+    public void step(){
+        shoot();
     }
 }

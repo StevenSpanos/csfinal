@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
-    private static Lawn lawn = new Lawn();
+    public static Lawn lawn = new Lawn();
+    public static int round = 1;
     private static Scanner input = new Scanner(System.in);
     public static ArrayList<Packet> packets = new ArrayList<Packet>();
     public static void main(String[] args){
@@ -14,9 +15,12 @@ public class Main{
         int choice = input.nextInt();
         spawn();
         while (choice != -1){
+            round++;
             lawn.printLawn();
             choice = inputHandler();
-
+            if(round % 5 == 0){
+                spawn();
+            }
             updatePlants();
             updateBugs();
         }
@@ -65,12 +69,12 @@ public class Main{
     }
 
     public static void spawn(){
-        lawn.spawn(new Bug(3, 5, 0, "X", 1, 1));
+        lawn.spawn(new Bug(3, 7, 0, "X", 1, 1));
     }
 
     public static void updatePlants(){
         for(Plant p : Plant.plants){
-            
+            p.step();
         }
     }
     public static void updateBugs(){

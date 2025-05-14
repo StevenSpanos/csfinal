@@ -21,12 +21,14 @@ public class Bug extends Entity{
     public int getSpeed(){return speed;} public int getType(){return type;}
 
     public void hurt(){
-        super.hurt();
-        if(super.getHealth() <= 0){
+        setHealth(getHealth()-1);
+        if(getHealth() <= 0){
             for(int x = 0; x < bugs.size(); x++){
                 Bug b = bugs.get(x);
-                if(b.equals(this)){
+                if(this.equals(b)){
                     bugs.remove(x);
+                    x--;
+                    Main.lawn.updateLawn();
                     return;
                 }
             }
@@ -35,5 +37,6 @@ public class Bug extends Entity{
 
     public void walk(){
         setX(getX()-1);
+        Main.lawn.updateLawn();
     }
 }

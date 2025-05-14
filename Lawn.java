@@ -46,12 +46,10 @@ public class Lawn {
     }
 
     public void plant(Plant p){
-        Plant.plants.add(p);
         updateLawn();
     }
 
     public void spawn(Bug b){
-        Bug.bugs.add(b);
         updateLawn();
     }
 }
