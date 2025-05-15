@@ -21,10 +21,15 @@ public class Main{
             choice = inputHandler();
             updatePlants();
             updateBugs();
-            if(round % 20 == 0 && round >= 20){
+            if(round % 30 == 0 && round >= 30){
                 spawn();
             }
-            if(round % 10 == 0){
+            if(round % 100 == 0 && round >= 100){
+                for(int i = 0; i < 5; i++){
+                    spawn();
+                }
+            }
+            if(round % 15 == 0){
                 water++;
             }
 
@@ -77,7 +82,7 @@ public class Main{
             y = input.nextInt();
             if(!checkXY(x,y)){System.out.println("There is a plant at that spot.");}
         }
-        if(a == 1){lawn.plant(new Plant(10, x, y, "B", 0,1));}
+        if(a == 1){lawn.plant(new Plant(10, x, y, "B", 2,1));}
         if(a == 2){lawn.plant(new Plant(7, x, y, "W", 7, 2));}
         if(a == 3){lawn.plant(new Plant(25,x, y,"C",0,3));}
         water -= packets.get(a-1).getCost();

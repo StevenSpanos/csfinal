@@ -35,6 +35,7 @@ public class Lawn {
 
     public void printLawn(){
         Main.clear();
+        System.out.println("Round " + Main.round);
         System.out.println("Water: "+Main.water);
         System.out.print("  "); for(int x = 0; x < cols; x++){System.out.print(" " + x + " ");}
         System.out.println();
