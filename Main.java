@@ -64,7 +64,7 @@ public class Main{
             System.out.println(x + ". " + packets.get(x-1).getName() + "; Cost: " + packets.get(x-1).getCost());
         }
         int a = input.nextInt();
-        while(a >= packets.size() || packets.get(a-1).getCost() > water){
+        while(a > packets.size() || packets.get(a-1).getCost() > water){
             if(a >= packets.size()){System.out.println("Invalid Input.");}
             else if(packets.get(a-1).getCost() > water){System.out.println("Not Enough Water");}
             a = input.nextInt();
@@ -78,7 +78,7 @@ public class Main{
             if(!checkXY(x,y)){System.out.println("There is a plant at that spot.");}
         }
         if(a == 1){lawn.plant(new Plant(10, x, y, "B", 0,1));}
-        if(a == 2){lawn.plant(new Plant(7, x, y, "W", 4, 2));}
+        if(a == 2){lawn.plant(new Plant(7, x, y, "W", 7, 2));}
         if(a == 3){lawn.plant(new Plant(25,x, y,"C",0,3));}
         water -= packets.get(a-1).getCost();
     }

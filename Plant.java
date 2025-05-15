@@ -51,4 +51,20 @@ public class Plant extends Entity{
             }
         }
     }
+
+    public void hurt(Bug b){
+        setHealth(getHealth()-1);
+        if(b.getX() < Main.lawn.getCols()-1){b.setX(b.getX()+1);}
+        if(getHealth() <= 0){
+            for(int x = 0; x < plants.size(); x++){
+                Plant p = plants.get(x);
+                if(this.equals(p)){
+                    plants.remove(x);
+                    x--;
+                    Main.lawn.updateLawn();
+                    return;
+                }
+            }
+        }
+    }
 }

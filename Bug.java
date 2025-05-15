@@ -47,5 +47,15 @@ public class Bug extends Entity{
         }
         Main.lawn.updateLawn();
         }
+        checkPlants();
+    }
+
+    public void checkPlants(){
+        for(Plant p : Plant.plants){
+            if((p.getX() == this.getX()) && (p.getY() == this.getY())){
+                p.hurt(this);
+                return;
+            }
+        }
     }
 }

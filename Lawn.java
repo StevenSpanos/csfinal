@@ -12,6 +12,8 @@ public class Lawn {
         cols = c;
         lawn = new Entity[rows][cols];
     }
+
+    public int getRows(){return rows;} public int getCols(){return cols;}
     public void resetLawn(){
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
