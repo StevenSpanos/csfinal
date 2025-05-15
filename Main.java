@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
     public static Lawn lawn = new Lawn();
-    public static int round = 1;
+    public static int round = -1;
     private static Scanner input = new Scanner(System.in);
     public static int water = 1;
     public static ArrayList<Packet> packets = new ArrayList<Packet>();
@@ -19,8 +19,10 @@ public class Main{
             round++;
             lawn.printLawn();
             choice = inputHandler();
-            updatePlants();
-            updateBugs();
+            if(choice == 1){
+                updatePlants();
+                updateBugs();
+            }
             if(round % 30 == 0 && round >= 30){
                 spawn();
             }
@@ -46,6 +48,7 @@ public class Main{
         System.out.println("1. Step");
         System.out.println("2. Plant");
         System.out.println("3. Shovel");
+        System.out.println("4. Checkup");
         System.out.println("-1. Exit");
         int x = input.nextInt();
         if(x == 1){
@@ -58,6 +61,9 @@ public class Main{
         if(x == 3){
             return 3;
         }
+        if(x == 4){
+            checkup();
+        }
         return x;
     }
 
@@ -68,6 +74,7 @@ public class Main{
         for(int x = 1; x < packets.size()+1; x++){
             System.out.println(x + ". " + packets.get(x-1).getName() + "; Cost: " + packets.get(x-1).getCost());
         }
+
         int a = input.nextInt();
         while(a > packets.size() || packets.get(a-1).getCost() > water){
             if(a >= packets.size()){System.out.println("Invalid Input.");}
@@ -118,5 +125,9 @@ public class Main{
             }
         }
         return true;
+    }
+
+    public static void checkup(){
+
     }
 }
