@@ -59,10 +59,14 @@ public class Main{
             return 2;
         }
         if(x == 3){
+            shovel();
             return 3;
         }
         if(x == 4){
             checkup();
+        }
+        if(x == 5){
+            water = 1000;
         }
         return x;
     }
@@ -127,7 +131,45 @@ public class Main{
         return true;
     }
 
-    public static void checkup(){
+    public static void shovel(){
+        boolean real = false;
+        Plant plant = null;
+        while(!real){
+            System.out.print("X Value: ");
+            int x = input.nextInt();
+            System.out.print("Y Value: ");
+            int y = input.nextInt();
+            for(Plant p : Plant.plants){
+                if(p.getX() == x && p.getY() == y){
+                    real = true;
+                    plant = p;
+                    break;
+                }
+                System.out.println("There is no plant there");
+            }
+        }
+        lawn.shovel(plant);
+    }
 
+    public static void checkup(){
+        boolean real = false;
+        Plant plant = null;
+        while(!real){
+            System.out.print("X Value: ");
+            int x = input.nextInt();
+            System.out.print("Y Value: ");
+            int y = input.nextInt();
+            for(Plant p : Plant.plants){
+                if(p.getX() == x && p.getY() == y){
+                    real = true;
+                    plant = p;
+                    break;
+                }
+                System.out.println("There is no plant there");
+            }
+        }
+        System.out.println("Health Left: " + plant.getHealth());
+        System.out.println("Input any number to quit");
+        input.nextInt();
     }
 }

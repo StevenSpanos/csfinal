@@ -56,4 +56,16 @@ public class Lawn {
     public void spawn(Bug b){
         updateLawn();
     }
+
+    public void shovel(Plant p){
+        p.setHealth(-1);
+        int x;
+        for(x = 0; x < Plant.plants.size(); x++){
+            if(Plant.plants.get(x) == p){
+                break;
+            }
+        }
+        Plant.plants.remove(x);
+        updateLawn();
+    }
 }
